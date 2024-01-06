@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javatpoint</title>
+    <script type="text/javascript">
+      //Objects -
+      /* object literals
+        emp = {id:101, name:"Prakhar", salary:1000}
+        document.write(emp.id +" "+ emp.name +" "+ emp.salary);*/
+
+      /* By creating an instance of object
+        emp = new Object();
+      emp.id = 101;
+      emp.name = "PJ";
+      emp.salary = 10000;
+      document.write(emp.id +" "+ emp.name +" "+ emp.salary);*/
+
+      /* By using an Object constructor
+      function emp(id,name,salary)
+      {
+        this.idd=id;
+        this.named=name;
+        this.salaryd=salary;
+      }
+      e = new emp(103,"Vimal",100000);
+      document.write(e.idd +" "+ e.named +" "+ e.salaryd); */
+
+      /* Defining method in JavaScript Object
+      function emp(id,name,salary)
+      {
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+        this.changesalary=changesalary;
+
+        function changesalary(othersalary)
+        {
+          this.salary=othersalary;
+        }
+      }
+
+      e = new emp(100,"Geeta",15000);
+      document.write(e.id +" "+ e.name +" "+ e.salary +"<br/>");
+      e.changesalary(20000);
+      document.write(e.id +" "+ e.name +" "+ e.salary);*/
+
+      /*array literal
+      var emp = [101,"Vimal",4000];
+      for(i=0;i<emp.length;i++)
+      {
+        document.write(emp[i] +"<br/>");
+      }*/
+
+      /*Array directly (new keyword)
+      var i;
+      var emp = new Array();
+      emp[0] = "rashid";
+      emp[1] = "Shahid";
+      emp[2] = "VImal";
+
+      for (i = 0; i < emp.length; i++) {
+        document.write(emp[i] + "<br>");
+      }*/
+
+      /*Array constructor (new keyword)
+      var emp = new Array(101,"Vimal",5000)
+      for(var i=0;i<emp.length;i++)
+      {
+        document.write(emp[i] + "<br>");
+      }*/
+
+      /*By string literal
+      var str = "This is a string";
+      document.write(str); */
+
+      /*By string object (using new keyword)
+      var str = new String("This is the string");
+      document.write(str); */
+
+      //Here, we are invoking the class before declaring it.
+
+      //Classes -
+
+      /*Class Declarations
+      class Emp
+      {
+        constructor(id,name)
+        {
+          this.id=id;
+          this.name=name;
+        }
+        detail()
+        {
+          document.write(this.id +" "+ this.name +"<br/>");
+        }
+      }
+      var e1 = new Emp(101,"Vimal");
+      var e2 = new Emp(102,"Kesari");
+      e1.detail();
+      e2.detail();*/
+
+      /*Class expressions
+      var emp = class {
+        constructor(id,name){
+          this.id=id;
+          this.name=name;
+        }
+        detail()
+        {
+          document.writeln(this.id +" "+ this.name +"<br/>");
+        }
+      }
+      var e1=new emp(101,"Vimal");
+      var e2=new emp(102,"Kesari");
+      e1.detail();
+      e2.detail();*/
+
+      //JavaScript Prototype
+      //add a new method to the constructor function -
+      /*function Employee(firstname,lastname)
+        {
+          this.firstname=firstname;
+          this.lastname=lastname;
+        }
+
+        Employee.prototype.fullname = function()
+        {
+          return this.firstname +" "+ this.lastname;
+        }
+          var Emp1 = new Employee("Jatin","Mishra");
+          var Emp2 = new Employee("Rohit","Sharma");
+          document.write(Emp1.fullname() +"<br/>");
+          document.write(Emp2.fullname());*/
+
+      //add a new property to the constructor function-
+      /*function Employee(firstname,lastname)
+          {
+            this.firstname=firstname;
+            this.lastname=lastname;
+          }
+
+          Employee.prototype.company="Javatpoint";
+
+          var Emp1 = new Employee("Jatin","Mishra");
+          var Emp2 = new Employee("Rohit","Sharma");
+
+          document.write(Emp1.firstname +" "+ Emp1.lastname +" "+ Emp1.company +"<br/>");
+          document.write(Emp2.firstname +" "+ Emp2.lastname +" "+ Emp2.company);*/
+
+      //JavaScript Constructor Method -
+      /*class Employee{
+            constructor(){
+              this.id=100;
+              this.name="Jatin";
+            }
+          }
+          var Emp=new Employee();
+          document.write(Emp.id +" "+ Emp.name);*/
+
+      //Constructor Method Example: super keyword
+      /*class Companyname
+          {
+            constructor()
+            {
+              this.company="Javatpoint";
+            }
+          }
+          class Employee extends Companyname{
+            constructor(id,name){
+              super();
+              this.id=id;
+              this.name=name;
+            }
+          }
+          var Emp=new Employee(1,"Jones");
+          document.write(Emp.id +" "+ Emp.name +" "+ Emp.company);*/
+
+      //Static Methods -
+
+      /*class Test
+          {
+            static display(){
+              return "static method is invoked";
+            }
+          }
+          document.write(Test.display());*/
+
+      /*Invoke more than one static method
+          class Test{
+            static display()
+            {
+              return "static method is invoked";
+            }
+            static display1()
+            {
+              return "static method is invoked again";
+            }
+          }
+          document.write(Test.display() +"<br/>");
+          document.write(Test.display1());*/
+
+      /*Invoke more than one static method with similar names-
+          class Test{
+            static display()
+            {
+              return "static method is invoked";
+            }
+            static display()
+            {
+              return "static method is invoked again";
+            }
+          }
+          document.write(Test.display());*/
+
+      /*Invoke a static method within the constructor-
+          class Test{
+            constructor()
+            {
+              document.write(Test.display() +"<br/>");
+              document.write(this.constructor.display());
+            }
+            static display(){
+              return "static method is invoked";
+            }
+          }
+          var t = new Test();*/
+
+      /*Invoke a static method within the non-static method-
+          class Test{
+            static display()
+            {
+              return "Method is invoked";
+            }
+            show(){
+              document.write(Test.display() +"<br/>");
+            }
+          }
+          var t = new Test();
+          t.show();*/
+
+      //Encapsulation -
+
+      /*Encapsulation that contains two data members with its setter and getter methods-
+
+          class Student{
+            constructor(){
+              var marks;
+              var name;
+            }
+            getname(){
+              return this.name;
+            }
+            setname(name){
+              this.name=name;
+            }
+            getmarks(){
+              return this.marks;
+            }
+            setmarks(marks){
+              this.marks=marks;
+            }
+          }
+          var stud=new Student();
+            stud.setname("Prakhar");
+            stud.setmarks(100);
+            document.write(stud.getname() +"<br/>");
+            document.write(stud.getmarks() +"<br/>");*/
+
+      /*Validate the marks of the student
+      class Student{
+        constructor(){
+          var marks;
+          var name;
+        }
+        getname(){
+          return this.name;
+        }
+        setname(name){
+          this.name=name;
+        }
+        getmarks(){
+          return this.marks;
+        }
+        setmarks(marks){
+          if(marks<0||marks>100){
+            alert("Invalid Marks");
+          }
+          else{
+            this.marks=marks;
+          }
+        }
+      }
+      var stud = new Student();
+        stud.setname("PJ");
+        stud.setmarks("100");
+        document.write(stud.getname() +"<br/>");
+        document.write(stud.getmarks());*/
+
+      /*Encapsulation Example: Prototype-based approach -
+        
+        function student(name,marks){
+          var s_name=name;
+          var s_marks=marks;
+
+          //The static method Object.defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object
+          //Object.defineProperty(object1, 'property1',{
+            
+          Object.defineProperty(this,"name",{
+            get:function(){
+              return s_name;
+            },
+            set:function(s_name)
+            {
+              return this.s_name;
+            }
+          });
+          Object.defineProperty(this,"marks",{
+            get:function()
+            {
+              return s_marks;
+            },
+            set:function(s_marks)
+            {
+              return this.s_marks
+            }
+          });
+        }
+        var stud= new student("John",100);
+        document.write(stud.name +" "+ stud.marks);*/
+
+      //Inheritance -
+
+      /*Extends Date object to display today's date -
+        class Moment extends Date{
+          constructor(){
+          super();
+        }
+        }
+        var m = new Moment();
+        document.write("Current Date : ");
+        document.write(m.getDate() +"-"+ (m.getMonth()+1) +"-"+ m.getFullYear());*/
+
+      /*Example to display the year value from the given date -
+          class Moment extends Date{
+          constructor(year){
+            super(year);
+          }
+        }
+        var m = new Moment("August 15, 1947");
+        document.write("Year value : ");
+        document.write(m.getFullYear());*/
+
+      /*JavaScript extends Example: Custom class
+        class Bike{
+          constructor(){
+            this.company="Honda";
+          }
+        }
+        class vehicle extends Bike{
+          constructor(name,price){
+            super();
+            this.name=name;
+            this.price=price;
+          }
+        }
+        var v = new vehicle("John",1000);
+        document.write(v.company +" "+ v.name +" "+ v.price);*/
+
+      /*JavaScript extends Example: a Prototype-based approach-
+
+        function Bike(company){
+          this.company = company;
+        }
+
+        Bike.prototype.gotcompany=function(){
+          return this.company;
+        }
+
+        function vehicle(name,price){
+          this.name=name;
+          this.price=price;
+        }
+
+        var bike = new Bike("Honda");
+        vehicle.prototype=bike;
+        var v=new vehicle("John",1000);
+        document.write(v.gotcompany() +" "+ v.name +" "+ v.price);*/
+
+      //Polymorphism -
+
+      /*Child class object invokes the parent class method -
+
+        class A{
+          display(){
+            document.writeln("A is invoked"); 
+          }
+        }
+        class B extends A{
+
+        }
+
+        var b = new B();
+        b.display();*/
+
+      /*Child and parent class contains the same method. Here, the object of child class invokes both classes method-
+
+        class A{
+          display(){
+            document.writeln("A is invoked <br/>"); 
+          }
+        }
+        class B extends A{
+          display(){
+            document.writeln("B is invoked");
+          }
+        }
+        var b = [new A(), new B()]
+        b.forEach(function(msg)
+        {
+          msg.display();
+        }
+        );*/
+
+      /*Same example with prototype-based approach
+
+        function A(An){
+          this.An=An;
+        }
+        A.prototype.display=function(){
+          return this.An +" is invoked"; 
+        }
+        function B(An){
+          this.An=An;
+        }
+        //The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+        B.prototype=Object.create(A.prototype); //acquiring method from existing constructor for new object
+        var a = [new A("A"), new B("B")] //Object created 
+        a.forEach(function(msg)
+        {
+          document.write(msg.display() + "<br/>");
+        });*/
+
+      //Abstraction -
+      /*Let's check whether we can create an instance of Abstract class or not-
+
+        function Vehicle(){
+          this.vehiclename = "vehiclename";
+          throw new Error("You cannot create instance of Abstract class");
+        }
+        Vehicle.prototype.display=function(){
+          return this.vehiclename;
+        }
+        var vehicle = new Vehicle();*/
+
+      /*Example to achieve abstraction-
+
+      function vehicle() {
+        this.vehiclename = "VehicleName";
+        throw new Error("You cannot create an instance of Abstract Class");
+      }
+      vehicle.prototype.display = function () {
+        return this.vehiclename;
+      };
+
+      function Bike(vehiclename) {
+        this.vehiclename = vehiclename;
+      }
+
+      Bike.prototype = Object.create(vehicle.prototype);
+      var bike = new Bike("Honda");
+      document.write(bike.display());*/
+
+     /* Example, we use instanceof operator to test whether the object refers to the corresponding class-
+
+      function Vehicle(){
+        this.VehicleName="VehicleName";
+        throw new Error("You cannot create an instance of Abstract class");
+      }
+
+      function Bike(VehicleName){
+        this.VehicleName=VehicleName;
+      }
+      Bike.prototype=Object.create(Vehicle.prototype);
+      var bike = new Bike("Honda");
+      document.write(bike instanceof Vehicle);
+      document.write("<br/>");
+      document.write(bike instanceof Bike);*/
+    </script>
+  </head>
+  <body></body>
+</html>
